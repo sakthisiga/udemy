@@ -11,11 +11,11 @@ class User extends CI_Controller {
     {
         
         $username = $this->input->post('username');
-        $password = md5($this->input->post('password'));
+        $password = $this->input->post('password');
         
         $result = $this->user_model->get([
             'username' => $username,
-            'password' => $password
+            'password' => hash('sha256',$password.PASS)
         ]);
         
         $this->output->set_content_type('application_json');
@@ -29,6 +29,52 @@ class User extends CI_Controller {
     else {
         $this->output->set_output(json_encode(['result' => '0']));
     }
+        
+        
+        $session = $this->session->all_userdata('user_id');
+        //print_r($session);
+    }
+    
+    
+     public function register()
+    {
+        $this->output->set_content_type('application_json');
+        
+        $this->form_validation->set_rules('username','Username','required|min_length[4]|max_length[8]|is_unique[user.username]');
+        $this->form_validation->set_rules('email','Email','required|valid_email|is_unique[user.email]');
+        $this->form_validation->set_rules('password','Password','required|min_length[4]|max_length[20]|matches[confirm_password]');
+        $this->form_validation->set_rules('confirm_password','Confirm Password','required|min_length[4]|max_length[20]');
+        
+        if($this->form_validation->run() == FALSE)
+        {
+            $this->output->set_output(json_encode(['result' => '0','error' => $this->form_validation->error_array()]));
+            return false;
+        }
+        $username = $this->input->post('username');
+        $email= $this->input->post('email');
+        $password = $this->input->post('password');
+        $confirm_password = $this->input->post('confirm_password');
+        
+        $user_id = $this->user_model->insert([
+            'username' => $username,
+            'password' => hash('sha256',$password.PASS),
+            'email' => $email
+        ]);
+        
+      
+        
+        
+        
+        if($user_id)
+        {
+            $this->session->set_userdata(['user_id' => $user_id]);
+            $this->output->set_output(json_encode(['result' => '1']));
+            return false;
+        }
+        else 
+        {
+            $this->output->set_output(json_encode(['result' => '0', 'error' => 'User not Created']));
+        }
         
         
         $session = $this->session->all_userdata('user_id');
