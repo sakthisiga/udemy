@@ -4,6 +4,7 @@ class User extends CI_Controller {
     
     public function __construct() {
         parent::__construct();
+        $this->load->model('user_model');
     }
     
     public function login()
@@ -25,11 +26,12 @@ class User extends CI_Controller {
             $this->output->set_output(json_encode(['result' => '1']));
             return false;
         }
+    else {
         $this->output->set_output(json_encode(['result' => '0']));
-       
+    }
         
         
         $session = $this->session->all_userdata('user_id');
-        print_r($session);
+        //print_r($session);
     }
 }

@@ -22,7 +22,7 @@
 			<input type="submit" value="Login" class="btn btn-primary">
 		</div>	
 	</div>
-	
+    
 </form>
 
 </div>
@@ -37,7 +37,7 @@ $(function(){
         
         $.post(url, postData, function(o){
            if(o.result == 1) {
-               alert("Success");
+               window.location.href = '<?=site_url('dashboard')?>';
            } 
            else
            {
