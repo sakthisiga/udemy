@@ -1,7 +1,7 @@
 <div class="row">
 <div class="span6">
 
-<form class="form-horizontal" method="post" action="<?=site_url('dashboard')?>">
+<form id="login-form" class="form-horizontal" method="post" action="<?=site_url('user/login')?>">
 
 	<div class="control-group">
 		<label class="control-label"> User Name</label>
@@ -19,7 +19,7 @@
 	
 	<div class="control-group">
 		<div class="controls">
-			<input type="submit" value="Login" class="btbn btn-primary">
+			<input type="submit" value="Login" class="btn btn-primary">
 		</div>	
 	</div>
 	
@@ -27,3 +27,25 @@
 
 </div>
 </div>
+
+<script type="text/javascript">
+$(function(){
+    $("#login-form").submit(function(evt){
+        evt.preventDefault();
+        var url = $(this).attr('action');
+        var postData = $(this).serialize();
+        
+        $.post(url, postData, function(o){
+           if(o.result == 1) {
+               alert("Success");
+           } 
+           else
+           {
+               alert("Invalid Username or Password");
+           }
+            
+        },'json');
+    });
+});
+</script>
+    
