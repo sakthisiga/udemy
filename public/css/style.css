@@ -1,10 +1,20 @@
 /* Overwrite Bootstrap style */
 
-.wrapper {
-	width: 1280px;
-	margin: 0px auto;
+html,
+body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
 }
 
+.wrapper {
+	
+          min-height: 100%;
+  height: auto;
+  /* Negative indent footer by its height */
+  margin: 0 auto -60px;
+  /* Pad bottom by footer height */
+  padding: 0 0 60px;
+}
 
 #dashboard-side{
 	background: #f2f2f2;
@@ -15,5 +25,55 @@
 #dashboard-main{
 	background: #f2f2f2;
 	min-height: 500px;
+}
+
+.form-signin {
+         border: 1px solid #D8D8D8;
+         border-bottom-width: 2px;
+         border-top-width: 0;
+         background-color: #FFF;
+         max-width: 350px;
+        padding: 19px 29px 29px;
+        margin: 0 auto 20px;
+        background-color: #fff;
+        border: 1px solid #F5F5F5;
+        -webkit-border-radius: 3px;
+           -moz-border-radius: 3px;
+                border-radius: 3px;
+      }
+.form-signin .form-signin-heading {
+         font-size: 24px;
+         font-weight: 300;
+      }
+
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+        margin-bottom: 10px;
+      }
+.form-signin input[type="text"],
+.form-signin input[type="password"] {
+        font-size: 16px;
+        height: auto;
+        margin-bottom: 15px;
+        padding: 7px 9px;
+      }
+      
+#footer {
+  height: 60px;
+  background: #f2f2f2;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+.container-foot {
+  width: auto;
+  max-width: 680px;
+  padding: 0 15px;
+}
+.container-foot .credit {
+  margin: 20px 0;
 }
 

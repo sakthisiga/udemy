@@ -10,6 +10,16 @@ class User extends CI_Controller {
     public function login()
     {
         
+        $this->output->set_content_type('application_json');
+        
+        $this->form_validation->set_rules('username','Username','required');
+        $this->form_validation->set_rules('password','Password','required');
+        if($this->form_validation->run() == FALSE)
+        {
+            $this->output->set_output(json_encode(['result' => '0','error' => $this->form_validation->error_array()]));
+            return false;
+        }
+        
         $username = $this->input->post('username');
         $password = $this->input->post('password');
         
@@ -18,7 +28,7 @@ class User extends CI_Controller {
             'password' => hash('sha256',$password.PASS)
         ]);
         
-        $this->output->set_content_type('application_json');
+        
         
         if($result)
         {
@@ -26,9 +36,10 @@ class User extends CI_Controller {
             $this->output->set_output(json_encode(['result' => '1']));
             return false;
         }
-    else {
-        $this->output->set_output(json_encode(['result' => '0']));
-    }
+        else 
+        {
+            $this->output->set_output(json_encode(['result' => '0', 'error2' => 'Invalid Credentials, please try again with proper credentials. <br> If you do not have user account, please click "Register" link to create a one ']));
+        }
         
         
         $session = $this->session->all_userdata('user_id');
@@ -59,10 +70,7 @@ class User extends CI_Controller {
             'username' => $username,
             'password' => hash('sha256',$password.PASS),
             'email' => $email
-        ]);
-        
-      
-        
+        ]);  
         
         
         if($user_id)

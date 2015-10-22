@@ -1,9 +1,18 @@
-<div class="row">
-<div class="span6">
+<div class="row-fluid">
 
-    <div id="register-form-error" class="alert alert-error"><!-- Dynamic field flows --> </div>
-<form id="register-form" class="form-horizontal" method="post" action="<?=site_url('user/register')?>">
+    <div class="span4 offset4">
+         <div id="register-form-error" class="alert alert-error"><!-- Dynamic field flows --> </div>
+    </div>
+    
+</div>
 
+
+<div class="row-fluid">
+<div class="span12">
+   
+<form id="register-form" class="form-signin" method="post" action="<?=site_url('user/register')?>">
+ <fieldset>
+    <legend>Register User</legend>
 	<div class="control-group">
 		<label class="control-label"> User Name</label>
 		<div class="controls">
@@ -33,10 +42,11 @@
 	</div>
 	<div class="control-group">
 		<div class="controls">
-			<input type="submit" value="Register" class="btn btn-success">
+			<input type="submit" value="Register" class="btn btn-primary"> 
+                        <a class="btn btn-inverse" href="<?=site_url('/')?>">Back</a>
 		</div>	
 	</div>
-    <a href="<?=site_url('/')?>">Back</a>
+ </fieldset>
 </form>
 
 </div>

@@ -60,12 +60,14 @@ CREATE TABLE IF NOT EXISTS `user` (
   `date_added` datetime NOT NULL,
   `date_modified` datetime NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
--- Dumping data for table udemy_db.user: ~1 rows (approximately)
+-- Dumping data for table udemy_db.user: ~3 rows (approximately)
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`user_id`, `username`, `password`, `email`, `date_added`, `date_modified`) VALUES
-	(1, 'sakthi', 'cee1f86a3b75f70e97b71ad01e821a80', 'sakthisiga@outlook.com', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+	(1, 'sakthi', '316076d0a9ceb48928e2d53dfb2c146338ac2ac3c519ee01a0fb67d32056093b', 'sakthisiga@outlook.com', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+	(2, 'admin', '316076d0a9ceb48928e2d53dfb2c146338ac2ac3c519ee01a0fb67d32056093b', 'admin@outlook.com', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
+	(11, 'ammu', '2a102cafc3404477e264c5b90ef81440945c3cbe7473f67b5e96b16ed148f468', 'ammu@gmail.com', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
