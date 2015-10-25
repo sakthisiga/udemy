@@ -12,9 +12,12 @@ class Dashboard extends CI_Controller {
         }
 	public function index()
 	{
-		$this->load->view('dashboard/inc/header_view');
+		/* $this->load->view('dashboard/inc/header_view');
 		$this->load->view('dashboard/dashboard_view');
-		$this->load->view('dashboard/inc/footer_view');
+		$this->load->view('dashboard/inc/footer_view'); */
+		
+		$data['main_content'] = 'dashboard_view';
+		$this->load->view('dashboard/inc/template_view', $data);
 	}
 	
 	public function logout()

@@ -17,11 +17,25 @@
 	<div class="navbar-inner">
 	<span class="brand">Udemy - Learn - CI</span>
 		<ul class="nav">
-			<li><a href="#">Dashboard</a></li>
-			<li><a href="#">User</a></li>
-			<li><a href="<?=site_url('dashboard/logout')?>">Logout</a></li>
+			<li><a href="#"><i class="icon-home"></i> Dashoard</a></li>
+			<li><a href="#"><i class="icon-user"></i> User</a></li>
+			<li><a href="#"><i class="icon-info-sign"></i> Issues</a></li>
+			<li><a href="#"><i class="icon-adjust"></i> Profile</a></li>
+			<li><a href="<?=site_url('dashboard/logout')?>"><i class="icon-remove-circle"></i> Logout</a></li>
 		</ul>
+		<div class="btn-group">
+  <a class="btn btn-warning dropdown-toggle" data-toggle="dropdown" href="#">
+    Action
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu">
+    	<li><a href="#"><i class="icon-home"></i> Dashoard</a></li>
+			<li><a href="#"><i class="icon-user"></i> User</a></li>
+			<li><a href="#"><i class="icon-info-sign"></i> Issues</a></li>
+  </ul>
+</div>
 	</div>
+	
 </nav>
 </header>
 <div class="wrapper">

@@ -8,12 +8,12 @@ body {
 
 .wrapper {
 	
-          min-height: 100%;
-  height: auto;
+      min-height: 100%;
+ 	  height: auto;
   /* Negative indent footer by its height */
-  margin: 0 auto -60px;
+      margin: 0 auto -60px;
   /* Pad bottom by footer height */
-  padding: 0 0 60px;
+      padding: 0 auto 60px;
 }
 
 #dashboard-side{
@@ -29,17 +29,15 @@ body {
 
 .form-signin {
          border: 1px solid #D8D8D8;
-         border-bottom-width: 2px;
-         border-top-width: 0;
-         background-color: #FFF;
+         border-bottom-width: 4px;
+         border-top-width: 2px;
+         background-color: #f2f2f2;
          max-width: 350px;
-        padding: 19px 29px 29px;
-        margin: 0 auto 20px;
-        background-color: #fff;
-        border: 1px solid #F5F5F5;
-        -webkit-border-radius: 3px;
-           -moz-border-radius: 3px;
-                border-radius: 3px;
+         padding: 19px 29px 29px;
+         margin: 0 auto 20px;
+          -webkit-border-radius: 5px;
+          -moz-border-radius: 3px;
+         border-radius: 3px;
       }
 .form-signin .form-signin-heading {
          font-size: 24px;
