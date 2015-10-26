@@ -10,7 +10,7 @@
 <div class="row-fluid">
 <div class="span12">
    
-<form id="register-form" class="form-signin" method="post" action="<?=site_url('user/register')?>">
+<form id="register-form" class="form-signin" method="post" action="<?=site_url('api/register')?>">
  <fieldset>
     <legend>Register User</legend>
 	<div class="control-group">

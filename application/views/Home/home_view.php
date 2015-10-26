@@ -9,7 +9,7 @@
 
 <div class="row-fluid">
 <div class="span12" style="position:absolute; left:10px; top:180px;">
-<form id="login-form" class="form-signin" method="post" action="<?=site_url('user/login')?>">
+<form id="login-form" class="form-signin" method="post" action="<?=site_url('api/login')?>">
     
  <fieldset>
     <legend>Login</legend>

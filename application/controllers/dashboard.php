@@ -1,5 +1,7 @@
 <?php
 
+// Dashboard Class Begins
+
 class Dashboard extends CI_Controller {
 	
         public function __construct() {
@@ -10,6 +12,11 @@ class Dashboard extends CI_Controller {
                 $this->logout();
             }
         }
+        
+        //-------------------------------------------------------------------------------------------
+        //Function : Load the Dashboard View
+        //-------------------------------------------------------------------------------------------
+        
 	public function index()
 	{
 		/* $this->load->view('dashboard/inc/header_view');
@@ -20,9 +27,15 @@ class Dashboard extends CI_Controller {
 		$this->load->view('dashboard/inc/template_view', $data);
 	}
 	
+        //-------------------------------------------------------------------------------------------
+        //Function : Logout from application (Loads login page)
+        //-------------------------------------------------------------------------------------------
+        
 	public function logout()
 	{
 		$this->session->sess_destroy();
 		redirect("/");
 	}
 }
+
+// Dashboard Class Ends
