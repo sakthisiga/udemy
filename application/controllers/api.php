@@ -213,7 +213,7 @@ class Api extends CI_Controller {
         
         if($result)
         {
-        	$this->output->set_output(json_encode(['result' => '1' ]));
+        	$this->output->set_output(json_encode(['result' => '1']));
         	return false;
         }
         else 

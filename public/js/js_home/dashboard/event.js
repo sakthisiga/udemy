@@ -63,6 +63,28 @@ var Event = function() {
     
     var delete_todo = function() {
         
+    	$("div").on('click', '.todo_delete', function(e){
+    		e.preventDefault();
+    		
+    		var self = $(this).parent('div');
+    		var url = $(this).attr('href');
+    		var postData = {
+    				'todo_id': $(this).attr('data-id')
+    		};
+    		$.post(url,postData, function(o){
+    			if(o.result == 1)
+    				{
+    					Display.success("Item Deleted");
+    					self.remove();
+    				}
+    			else
+    				{
+    					Display.error(o.msg);
+    				}
+    		},'json');
+    	
+    	
+    	})
     };
 
     // ------------------------------------------------------------------------
