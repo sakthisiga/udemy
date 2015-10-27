@@ -39,6 +39,19 @@ body {
           -moz-border-radius: 3px;
          border-radius: 3px;
       }
+      
+.form-entry {
+         border-bottom-width: 4px;
+         border-top-width: 2px;
+         max-width: 350px;
+         padding: 19px 29px 29px;
+         margin: 0 auto 20px;
+          -webkit-border-radius: 5px;
+          -moz-border-radius: 3px;
+         border-radius: 3px;
+      }
+      
+      
 .form-signin .form-signin-heading {
          font-size: 24px;
          font-weight: 300;
@@ -75,3 +88,7 @@ body {
   margin: 20px 0;
 }
 
+.hide {
+	display:none;
+	
+}

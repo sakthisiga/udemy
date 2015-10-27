@@ -9,15 +9,19 @@
         <link href="<?=base_url()?>public/css/style.css" rel="stylesheet" />
         <script src="<?=base_url()?>public/js/jquery.js"></script>
 	<script src="<?=base_url()?>public/js/bootstrap.js"></script>
+	 
         <script src="<?=base_url()?>public/js/js_home/dashboard/template.js"></script>
         <script src="<?=base_url()?>public/js/js_home/dashboard/event.js"></script>
-        <script src="<?=base_url()?>public/js/js_home/dashboard/result.js"></script>
+     <script src="<?=base_url()?>public/js/js_home/dashboard/display.js"></script>  
         <script src="<?=base_url()?>public/js/js_home/dashboard.js"></script>
 	<link rel="shortcut icon" href="<?php echo base_url();?>public/ico/favicon.png">
         
         <script type="text/javascript">
             //Init the Dashboard Application
+            $(function() {
             var dashboard = new Dashboard();
+
+            });
         </script>
         
 </head>
@@ -47,3 +51,7 @@
 </header>
 <div class="wrapper">
 <!-- Start: Wrapper -->
+
+
+<div id="error" class="alert alert-error hide"></div>
+<div id="success" class="alert alert-success hide"></div>

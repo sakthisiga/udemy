@@ -41,7 +41,7 @@
 
 <script type="text/javascript">
 $(function(){
-      $("#login-form-error").hide();
+    $("#login-form-error").hide();
     $("#login-form").submit(function(evt){
         evt.preventDefault();
         var url = $(this).attr('action');

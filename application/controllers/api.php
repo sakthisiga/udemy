@@ -121,6 +121,71 @@ class Api extends CI_Controller {
     public function create_todo()
     {
         $this->_require_login();
+        
+        $this->output->set_content_type('application_json');
+        
+        //Form Validation
+        $this->form_validation->set_rules('content','Content','required|min_length[10]|max_length[100]');
+        
+        if($this->form_validation->run() == false)
+        {
+        	$this->output->set_output(json_encode([
+        			'result' => '0',
+        			'error' => $this->form_validation->error_array()
+        	]));
+        	return false;
+        }
+        
+        //Inserting data
+        $result = $this->db->insert('todo', [
+        		'content' => $this->input->post('content'),
+        		'user_id' => $this->session->userdata('user_id')
+        ]);
+        
+        if($result)
+        {
+        	// Get fresh list to be posted to DOM
+        	
+        	$query = $this->db->get_where('todo',['todo_id' => $this->db->insert_id()]);
+        	$this->output->set_output(json_encode([
+        			'result' => '1',
+        			'output' => 'New Todo Added',
+        			'data' => $query->result()
+        	]));
+        	return false;
+        }
+        else
+        {
+        	$this->output->set_output(json_encode(['result' => '0']));
+        }
+    }
+    
+    //-------------------------------------------------------------------------------------------
+    //Function : Get the Todo Item
+    //-------------------------------------------------------------------------------------------
+    
+    public function get_todo($id = NULL)
+    {
+        $this->_require_login();
+        
+        if($id != NULL)
+        {
+        	$this->db->where([
+        			'todo_id' => $id,
+        			'user_id' => $this->session->userdata('user_id')
+        			
+        	]);
+        }
+        else
+        {
+        	$this->db->where('user_id',$this->session->userdata('user_id'));
+        }
+        
+        $query = $this->db->get('todo');
+        $result = $query->result();
+        
+        $this->output->set_output(json_encode($result));
+        
     }
     
     //-------------------------------------------------------------------------------------------
@@ -129,8 +194,8 @@ class Api extends CI_Controller {
     
     public function update_todo()
     {
-        $this->_require_login();
-        $todo_id = $this->input->post('todo_id');
+    	$this->_require_login();
+    	$todo_id = $this->input->post('todo_id');
     }
     
     //-------------------------------------------------------------------------------------------
@@ -140,7 +205,26 @@ class Api extends CI_Controller {
     public function delete_todo()
     {
         $this->_require_login();
-        $todo_id = $this->input->post('todo_id');
+        
+        $result = $this->db->delete('todo',[
+        		'todo_id' => $this->input->post('todo_id'),
+        		'user_id' => $this->session->userdata('user_id')
+        ]);
+        
+        if($result)
+        {
+        	$this->output->set_output(json_encode(['result' => '1' ]));
+        	return false;
+        }
+        else 
+        {
+        	$this->output->set_output(json_encode([
+        			'result' => '0',
+        			'message' => 'Could not delete'
+        			
+        	]));
+        }
+        
     }
         
     //-------------------------------------------------------------------------------------------
