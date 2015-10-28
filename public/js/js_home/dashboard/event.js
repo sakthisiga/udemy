@@ -74,7 +74,7 @@ var Event = function() {
     		$.post(url,postData, function(o){
     			if(o.result == 1)
     				{
-    					Display.success("Item Deleted");
+    					Display.warning("Item Deleted");
     					self.remove();
     				}
     			else

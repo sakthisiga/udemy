@@ -19,8 +19,8 @@
         <script type="text/javascript">
             //Init the Dashboard Application
             $(function() {
+                // Init application
             var dashboard = new Dashboard();
-
             });
         </script>
         
@@ -54,4 +54,5 @@
 
 
 <div id="error" class="alert alert-error hide"></div>
+<div id="warning" class="alert alert-warning hide"></div>
 <div id="success" class="alert alert-success hide"></div>

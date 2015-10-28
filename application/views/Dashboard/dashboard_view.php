@@ -9,11 +9,10 @@
 				</form>
 				<!-- Todo Form Ends-->
 				<!-- Display the result -->
+				<div class="panel panel-primary">...</div>
+					<div id="list_todo" class="panel-body">
 				
-				<div id="list_todo">
-				
-				</div>
-				</table>
+					</div>
             </div>
 
             <div id="dashboard-main" class="span8">

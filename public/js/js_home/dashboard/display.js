@@ -60,6 +60,38 @@ var Display = function() {
     
     // ------------------------------------------------------------------------
     
+this.warning = function(msg) {
+    	
+    	var dom = $("#warning");
+    	if(typeof msg == "undefined")
+		{
+    		dom.html('Warning').fadeIn();
+		}
+    	if(typeof msg == "object")
+		{
+    		var output = '<ul>';
+    		for(var key in msg)
+    			{
+    				output += '<li>' + msg[key] + '</li>';
+    			}
+    		output += "</ul>";
+    		dom.html(output).fadeIn();
+		}
+    	else
+    	{
+    		var op = '<ul>';
+    		op += '<li>' + msg + '</li>';
+    		op += '</ul>';
+    		dom.html(op).fadeIn();
+    	}
+    	
+    	setTimeout( function(){
+    		dom.fadeOut();
+    	},2000);
+    };
+    
+    // ------------------------------------------------------------------------
+    
     this.__construct();
     
 };
