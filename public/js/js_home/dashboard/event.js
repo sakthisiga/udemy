@@ -26,7 +26,9 @@ var Event = function() {
   	           if(o.result == 1) {
   	               Display.success(o.output);
   	               var output  = Template.todo(o.data[0]);
+  	             //var output  = Dashboard.load_todo();
   	               $("#list_todo").append(output);
+  	             $("#content").val("");
   	           } 
   	           else
   	           {
@@ -75,7 +77,7 @@ var Event = function() {
     			if(o.result == 1)
     				{
     					Display.warning("Item Deleted");
-    					self.remove();
+    					show_data();
     				}
     			else
     				{
@@ -94,6 +96,23 @@ var Event = function() {
     };
     
     // ------------------------------------------------------------------------
+    
+    var show_data = function() {
+    	
+    	$.get('api/get_todo', function(o){
+    		
+    		var output = '';
+    	//	output += '<table class="table table-bordered"><tr><th>Todo Id</th><th>Content</th><th>Action</th></tr>';
+    		for(var i = 0; i < o.length; i++)
+    			{
+    				output += Template.todo(o[i]);
+    			}
+    	//	output += '</table>';
+    		
+    		$("#list_todo").html(output);
+    	},'json');
+    	
+    };
     
     this.__construct();
     

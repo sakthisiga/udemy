@@ -4,12 +4,12 @@
             <div id="dashboard-side" class="span4">
 				<!-- Todo Form Begin-->
 				<form id="create_todo" class="form-inline" method="post" action="<?=site_url('api/create_todo')?>">
-						<input type="text" name="content" placeholder="Type in a Todo">
+						<input type="text" id="content" name="content" placeholder="Type in a Todo">
 						<input class="btn btn-primary" type="submit" value="Create">
 				</form>
 				<!-- Todo Form Ends-->
 				<!-- Display the result -->
-				<div class="panel panel-primary">...</div>
+				
 					<div id="list_todo" class="panel-body">
 				
 					</div>

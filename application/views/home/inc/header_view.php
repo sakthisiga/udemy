@@ -23,7 +23,9 @@
 		</ul>
 	</div>
 </nav>
-</header>
 
+
+</header>
+ 
 <div class="wrapper">
 <!-- Start: Wrapper -->

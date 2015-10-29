@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Udemy :: Learn</title>
 	<link href="<?=base_url()?>public/css/bootstrap.min.css" rel="stylesheet" />
-	<link href="<?=base_url()?>public/css/bootstrap-responsive.css" rel="stylesheet" />
-        <link href="<?=base_url()?>public/css/style.css" rel="stylesheet" />
+        <link href="<?=base_url()?>public/css/bootstrap-responsive.css" rel="stylesheet" /> 
+        <!--<link href="<?=base_url()?>public/css/bootplus.css" rel="stylesheet" />-->
+	<link href="<?=base_url()?>public/css/style.css" rel="stylesheet" />
+
         <script src="<?=base_url()?>public/js/jquery.js"></script>
 	<script src="<?=base_url()?>public/js/bootstrap.js"></script>
-	 
+	
         <script src="<?=base_url()?>public/js/js_home/dashboard/template.js"></script>
         <script src="<?=base_url()?>public/js/js_home/dashboard/event.js"></script>
      <script src="<?=base_url()?>public/js/js_home/dashboard/display.js"></script>  
@@ -27,7 +29,7 @@
 </head>
 <body>
 <header>
-<nav class="navbar">
+<nav class="navbar navbar-default">
     <div class="navbar-inner">
         <span class="brand">Udemy - Learn - CI</span>
                 <ul class="nav">
@@ -49,10 +51,16 @@
     </div>
 </nav>
 </header>
+    
 <div class="wrapper">
 <!-- Start: Wrapper -->
+<div class="container-fluid">
+    <div class="row-fluid">
+		<div class="span12">
+			<div id="error" class="alert alert-error hide"></div>
+			<div id="warning" class="alert alert-warning hide"></div>
+			<div id="success" class="alert alert-success hide"></div>
+		</div>
+	</div>
+</div>
 
-
-<div id="error" class="alert alert-error hide"></div>
-<div id="warning" class="alert alert-warning hide"></div>
-<div id="success" class="alert alert-success hide"></div>
