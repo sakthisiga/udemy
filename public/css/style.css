@@ -90,5 +90,8 @@ body {
 
 .hide {
 	display:none;
-	
+}
+
+.todo_complete {
+	color:green;
 }

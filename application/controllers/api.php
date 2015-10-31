@@ -195,7 +195,30 @@ class Api extends CI_Controller {
     public function update_todo()
     {
     	$this->_require_login();
-    	$todo_id = $this->input->post('todo_id');
+    	$todo_id = $this->input->post('id');
+    	$completed = $this->input->post('completed');
+
+    	$this->db->where(['todo_id' => $todo_id]);
+    	$this->db->update('todo',[
+    			'completed' => $completed
+    	]);
+    	
+    	$result = $this->db->affected_rows();
+    	
+    if($result)
+    	{
+	    	$this->output->set_output(json_encode(['result' => '1']));
+	    	return false;
+    	}
+    	else
+    	{
+    		$this->output->set_output(json_encode([
+    				'result' => '0',
+    				'message' => 'Could not Updated'
+    		]));
+    		return false;
+    	}
+    	
     }
     
     //-------------------------------------------------------------------------------------------
