@@ -9,3 +9,13 @@ jobs:
     resource_class: sakthisiga/my-hstngr-machine
     steps:
       - run: echo "Hi I'm on Runners!"
+      - run:
+          name: Create a File
+          command: |
+            mkdir -p ~/circleci-workdir  # Ensure the working directory exists
+            echo "This is a test file created by CircleCI." > ~/circleci-workdir/test-file.txt
+      - run:
+          name: Verify the File
+          command: |
+            ls -l ~/circleci-workdir
+            cat ~/circleci-workdir/test-file.txt
