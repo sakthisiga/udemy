@@ -31,3 +31,4 @@ jobs:
           command: |
             ls -l /tmp/circleci-workdir
             cat /tmp/circleci-workdir/test-file.txt
+            echo "My Var is $MY_TEST_VAR"
