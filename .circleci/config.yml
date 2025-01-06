@@ -4,7 +4,9 @@ workflows:
     jobs:
       - Runner-Test
       - Create-File
-      - Check-File
+      - Check-File:
+          requires:
+            - Create-File
 jobs:
   Runner-Test:
     machine: true
