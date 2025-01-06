@@ -2,20 +2,30 @@ version: 2.1
 workflows:
   testing:
     jobs:
-      - runner-test
+      - Runner-Test
+      - Create-File
+      - Check-File
 jobs:
-  runner-test:
+  Runner-Test:
     machine: true
     resource_class: sakthisiga/my-hstngr-machine
     steps:
       - run: echo "Hi I'm on Runners!"
+  Create-File:
+    machine: true
+    resource_class: sakthisiga/my-hstngr-machine
+    steps:
       - run:
           name: Create a File
           command: |
-            mkdir -p ~/circleci-workdir  # Ensure the working directory exists
-            echo "This is a test file created by CircleCI." > ~/circleci-workdir/test-file.txt
+            mkdir -p /tmp/circleci-workdir  # Ensure the working directory exists
+            echo "This is a test file created by CircleCI." > /tmp/circleci-workdir/test-file.txt
+  Check-File:
+    machine: true
+    resource_class: sakthisiga/my-hstngr-machine
+    steps:
       - run:
           name: Verify the File
           command: |
-            ls -l ~/circleci-workdir
-            cat ~/circleci-workdir/test-file.txt
+            ls -l /tmp/circleci-workdir
+            cat /tmp/circleci-workdir/test-file.txt
